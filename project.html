@@ -1,0 +1,89 @@
+/* home.html */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Attendance Management System</h1>
+        <button onclick="adminLogin()">Admin View</button>
+        <button onclick="studentView()">Student View</button>
+    </div>
+</body>
+</html>
+
+/* admin.html */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Panel</h1>
+        <button onclick="addStudent()">Add Student</button>
+        <button onclick="markAttendance()">Mark Attendance</button>
+        <button onclick="viewAttendance()">View Attendance</button>
+    </div>
+</body>
+</html>
+
+/* student.html */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Panel</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Student Panel</h1>
+        <input type="text" id="rollNo" placeholder="Enter Roll Number">
+        <button onclick="checkAttendance()">Check Attendance</button>
+        <p id="attendanceResult"></p>
+    </div>
+</body>
+</html>
+
+/* script.js */
+function adminLogin() {
+    let password = prompt("Enter Admin Password:");
+    if (password === "1234") {
+        window.location.href = "admin.html";
+    } else {
+        alert("Incorrect Password!");
+    }
+}
+
+function studentView() {
+    window.location.href = "student.html";
+}
+
+function addStudent() {
+    let name = prompt("Enter Student Name:");
+    let rollNo = prompt("Enter Roll Number:");
+    let grade = prompt("Enter Grade:");
+    alert("Student Added Successfully!");
+}
+
+function markAttendance() {
+    let rollNo = prompt("Enter Roll Number:");
+    alert("Attendance Marked Successfully!");
+}
+
+function checkAttendance() {
+    let rollNo = document.getElementById("rollNo").value;
+    document.getElementById("attendanceResult").innerText = "Attendance Status: Present";
+}
